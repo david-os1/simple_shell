@@ -34,5 +34,7 @@ void builtin(char **command, char **argv, int *status);
 void exit_shell(char **command, char **argv, int *status, int idx);
 void print_env(char **command, int *status);
 int _atoi(char *str);
+char *_getenv(char *variable);
+char *_getpath(char *command);
 
 #endif

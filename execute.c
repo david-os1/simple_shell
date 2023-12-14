@@ -3,11 +3,17 @@ int _execute(char **command, char **argv)
 {
 	pid_t child;
 	int status;
+	full_cmd = _getpath(command[0]);
+	if (!full_cmd)
+	{
+		printerror();
+		freearray2D(command);
+		return();
 	
 	child = fork();
 	if (child == 0)
 	{
-		if (execve(command[0], cpmmand, environ ) == -1)
+		if (execve(command[0], command, environ ) == -1)
 		{
 			perror(argv[0]);
 			freearray2D(command);
